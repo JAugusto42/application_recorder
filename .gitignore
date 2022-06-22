@@ -7,5 +7,11 @@
 /spec/reports/
 /tmp/
 
+# ide
+.idea/
+
+# log files
+*.log
+
 # rspec failure tracking
 .rspec_status
