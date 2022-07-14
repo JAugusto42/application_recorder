@@ -10,7 +10,7 @@ module ApplicationRecorder
 
   class Log
     def self.info(message)
-      ApplicationRecorder::Info.new(message)
+      ApplicationRecorder::Info.new(message).write_log
     end
 
     def self.warn; end

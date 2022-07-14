@@ -1,7 +1,15 @@
 # frozen_string_literal: true
 
-class ApplicationRecorder::Info
-  def initialize(message)
-    File.open("development.log", "w") { |f| f.write(message) }
+module ApplicationRecorder
+  class Info
+    attr_reader :message
+
+    def write_log
+      File.write("development.log", "#{message}\n", mode: "a")
+    end
+
+    def initialize(message = nil)
+      @message = message
+    end
   end
 end

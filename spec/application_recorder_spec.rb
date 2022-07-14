@@ -8,10 +8,19 @@ RSpec.describe ApplicationRecorder do
   describe "::Log" do
     context ".info" do
       let(:message) { "log message" }
+      let(:new_message) { "other message" }
+
+      before { ApplicationRecorder::Log.info(message) }
+
+      after { File.delete("development.log") }
 
       it "should create a log file" do
-        ApplicationRecorder::Log.info(message)
         expect(Dir.glob(File.join(File.expand_path(".", "development.log"))).length).not_to be_zero
+      end
+
+      it "should write messages inside log file" do
+        file_content = File.read("development.log")
+        expect(file_content.size).not_to be_zero
       end
     end
   end
