@@ -4,6 +4,7 @@ require_relative "application_recorder/version"
 require_relative "application_recorder/info"
 
 require "pry"
+require "date"
 
 module ApplicationRecorder
   class Error < StandardError; end
